@@ -143,55 +143,6 @@ p {
 }
 
 
-.info-button {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #444;
-  background-color: transparent;
-  border: 1px solid #ccc;
-  padding: 4px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
-  z-index: 1000;
-}
-
-.info-button:hover {
-  background-color: #f0f0f0;
-}
-
-
-.info-box {
-  position: absolute;
-  top: 80px;
-  left: 30px;
-  width: 300px;
-  padding: 1rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  color: #222;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  text-align: left;
-  z-index: 1001;
-}
-
-.close-info {
-  margin-top: 1rem;
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-
 .cta-buttons {
   margin-top: 2rem;
   display: flex;
@@ -263,7 +214,7 @@ p {
 }
 
 .social-media-buttons a:hover {
-  color: #007bff; /* Hover durumunda maviye dönüş */
+  color: #000000; /* Hover durumunda maviye dönüş */
   background-color: #e6e6e6; /* Hoverda daha açık gri arka plan */
 }
 
@@ -273,3 +224,114 @@ p {
     gap: 15px;
   }
 }
+
+/* Info Butonu */
+.info-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px; /* Genişlik biraz artırıldı */
+  height: 30px; /* Yükseklik biraz artırıldı */
+  background-color: white; /* Beyaz arka plan */
+  color: #333; /* Harf rengi siyah */
+  font-size: 25px; /* Harf boyutu artırıldı */
+  font-weight: bold; /* Harfi kalın yapıyoruz */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Yuvarlak şekil */
+  cursor: pointer;
+  border: 2px solid #333; /* Siyah kenarlık */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Hover animasyonu */
+  z-index: 10;
+}
+
+.info-button:hover {
+  background-color: #000000; /* Hoverda siyah arka plan */
+  color: white; /* Hoverda ikon beyaz olacak */
+}
+
+/* Info Kutusu */
+.info-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  border-radius: 12px;
+  z-index: 9;
+  display: none; /* Başlangıçta gizli */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Animasyon */
+  border: 1px solid #333; /* İnce siyah çerçeve */
+}
+
+.info-box.show {
+  display: block; /* Butona tıklandığında kutu görünür hale gelir */
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* Kutu animasyonla görünür olur */
+}
+
+/* Kapat Butonu */
+.close-info {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #000000; /* Mavi buton */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-info:hover {
+  background-color: #000000; /* Hoverda koyu mavi */
+}
+
+/* Mobil ve Tablet Responsive Tasarım */
+
+/* Tablet ve Mobil Ekranlar İçin */
+@media (max-width: 768px) {
+  .info-button {
+    width: 25px; /* Mobilde buton biraz küçülecek */
+    height: 25px; /* Mobilde buton biraz küçülecek */
+    font-size: 20px; /* Harf boyutu küçülecek */
+  }
+
+  .info-box {
+    width: 85%; /* Kutunun genişliği biraz daha genişleyecek */
+    padding: 20px; /* Kutunun iç paddingi küçülecek */
+  }
+
+  .close-info {
+    width: 100%; /* Kapat butonu tam genişlikte olacak */
+    text-align: center;
+  }
+}
+
+/* Çok Küçük Ekranlar İçin (Telefonlar) */
+@media (max-width: 480px) {
+  .info-button {
+    width: 20px; /* Buton genişliği mobil ekranlara göre ayarlandı */
+    height: 20px;
+    font-size: 16px; /* Harf boyutunu küçültüyoruz */
+    top: 10px; /* Buton biraz daha yukarı kayacak */
+    left: 10px; /* Sol tarafta da daha yakın olacak */
+  }
+
+  .info-box {
+    width: 90%; /* Kutunun genişliği mobilde çok daha geniş olacak */
+    padding: 15px; /* Kutunun paddingi daha dar */
+  }
+
+  .close-info {
+    padding: 10px 0;
+    font-size: 14px; /* Buton yazı boyutunu küçültüyoruz */
+  }
+}
+
+
