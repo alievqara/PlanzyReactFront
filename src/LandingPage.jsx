@@ -1,58 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";  // useNavigate kullanacağız
-import "./LandingPage.css";  // CSS dosyasını import ettik
+import { useNavigate } from "react-router-dom";
+import "./LandingPage.css";
 
 const LandingPage = () => {
   const [language, setLanguage] = useState("ru");
-  const [showInfo, setShowInfo] = useState(false);  // Info kutusunun görünür olup olmadığını kontrol ediyoruz
-  const [menuOpen, setMenuOpen] = useState(false);  // Hamburger menüsü durumu
-  const navigate = useNavigate();  // useNavigate hook'unu kullanıyoruz
+  const [showInfo, setShowInfo] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // Dil değiştirme işlemi
   const handleLangChange = (lang) => setLanguage(lang);
 
-  // Info kutusunun açılıp kapanmasını kontrol etme
   const toggleInfo = () => setShowInfo(!showInfo);
 
-  // Sayfa kaydırıldığında info kutusunu göster
   const handleScroll = () => {
-    if (window.scrollY > 200) { // Sayfa belirli bir mesafeye kayarsa
-      setShowInfo(true); // Info kutusunu aç
+    if (window.scrollY > 200) {
+      setShowInfo(true);
     } else {
-      setShowInfo(false); // Info kutusunu kapat
+      setShowInfo(false);
     }
   };
 
-  // Scroll event listener'ını ekle
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll); // Scroll olduğunda handleScroll çalışacak
-
-    // Cleanup: event listener'ı temizle
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Buton tıklama işlemleri
-  const goToSignup = () => {
-    navigate("/signup");
-  };
-
-  const goToLogin = () => {
-    navigate("/login");
-  };
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);  // Hamburger menüsünü açma/kapama
+  const goToSignup = () => navigate("/signup");
+  const goToLogin = () => navigate("/signin");
 
   return (
     <div className="landing-container">
 
+      {/* Üstte Giriş/Kayıt Butonları */}
+      <div className="auth-buttons">
+        <button className="login-btn" onClick={goToLogin}>Войти</button>
+        <button className="signup-btn" onClick={goToSignup}>Зарегистрироваться</button>
+      </div>
 
-      {/* Ana Sayfa İçeriği */}
+      {/* Ana İçerik */}
       <div className="main-content">
         <h1 className="brand-text">Planzy</h1>
         <h2 className="headline">
-          {language === "ru" ? "Управляйте временем. Развивайте свой бизнес." : "Manage your time. Grow your business."}
+          {language === "ru"
+            ? "Управляйте временем. Развивайте свой бизнес."
+            : "Manage your time. Grow your business."}
         </h2>
 
         {/* Sosyal Medya Butonları */}
@@ -68,24 +59,10 @@ const LandingPage = () => {
           </a>
         </div>
       </div>
-
       {/* Footer */}
       <div className="footer">© 2025 ByteCraft — hello@planzy.ru</div>
 
-      {/* Hakkımızda Kutusu */}
-      {showInfo && (
-        <div className="info-box">
-          <p>
-            Planzy, küçük işletmelerin zaman yönetimi ve müşteri etkileşimini kolaylaştırmak için oluşturulmuş bir sistemdir.
-            <br />
-            <br />
-            Basit arayüzü ve güçlü rezervasyon yapısı ile işinizi büyütmenize yardımcı olur.
-          </p>
-          <button className="close-info" onClick={toggleInfo}>
-            Kapat
-          </button>
-        </div>
-      )}
+     
     </div>
   );
 };

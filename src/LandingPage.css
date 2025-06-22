@@ -1,15 +1,20 @@
-/* src/LandingPage.css */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
   font-family: 'Inter', sans-serif;
   height: 100%;
-  overflow: hidden;  /* ❗scroll’u tamamen engeller */
-
+  overflow: hidden;
 }
+
+/* ======================== ANA YAPI ======================== */
 
 .landing-container {
   height: 70vh;
@@ -19,183 +24,128 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #111;
-}
-
-.logo {
-  width: 80px;
-  margin-bottom: 2rem;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.05));
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
-  font-weight: normal;
-  margin-bottom: 1rem;
-}
-
-p {
-  max-width: 600px;
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 3rem;
+  color: #ffffff;
+  position: relative;
+  background-color: #000000;
 }
 
 .footer {
   font-size: 0.9rem;
-  color: #888;
+  color: #ccc;
   position: fixed;
   bottom: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  .logo {
-    width: 60px;
-  }
-}
-
+/* ======================== YAZILAR ======================== */
 
 .brand-text {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(7rem, 10vw, 15rem); /* 🚀 responsive büyüklük */
+  font-size: clamp(7rem, 10vw, 15rem);
   font-weight: 500;
   letter-spacing: 1px;
   margin-bottom: 2.5rem;
-  color: #111;
-  text-align: center;
+  color: #ffffff;
   line-height: 1.1;
 }
-
-.brand-p {
-  font-weight: 700;
-  font-size: clamp(10rem, 13vw, 20rem); /* 🚀 responsive büyüklük */
-  letter-spacing: 2px;
-}
-
-.language-switcher {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  z-index: 1000;
-  display: flex;
-  gap: 10px;
-}
-
-.lang-btn {
-  background-color: transparent;
-  border: 1px solid #ccc;
-  color: #444;
-  font-size: 0.9rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
-}
-
-.lang-btn:hover {
-  background-color: #f0f0f0;
-  border-color: #999;
-}
-
-.lang-btn.active {
-  background-color: #111;
-  color: #fff;
-  border-color: #111;
-}
-
-@media (max-width: 600px) {
-  .language-switcher {
-    top: 15px;
-    right: 15px;
-  }
-
-  .lang-btn {
-    padding: 4px 10px;
-    font-size: 0.8rem;
-  }
-}
-
 
 .headline {
   font-size: 1.8rem;
   font-weight: 400;
   margin-bottom: 1.5rem;
   line-height: 1.4;
+  max-width: 600px;
+  color: #fff;
 }
 
 .subtitle {
-  max-width: 600px;
   font-size: 1.1rem;
-  color: #444;
+  color: #bbb;
   line-height: 1.6;
   margin-bottom: 3rem;
 }
 
+/* ======================== GİRİŞ / KAYIT BUTONLARI ======================== */
 
-.cta-buttons {
-  margin-top: 2rem;
+.auth-buttons {
+  position: absolute;
+  top: 20px;
+  right: 30px;
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
+  z-index: 100;
 }
 
-.btn {
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 500;
+.login-btn,
+.signup-btn {
+  padding: 10px 18px;
+  font-weight: bold;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.btn.primary {
-  background-color: #111;
-  color: #fff;
-}
-
-.btn.primary:hover {
-  background-color: #333;
-}
-
-.btn.ghost {
+.login-btn {
   background-color: transparent;
-  color: #111;
-  border: 1px solid #aaa;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
-.btn.ghost:hover {
-  background-color: #f2f2f2;
+.login-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-
-@media (max-width: 600px) {
-  .cta-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
+.signup-btn {
+  background-color: #ffffff;
+  color: #000000;
 }
 
+.signup-btn:hover {
+  background-color: #dddddd;
+}
 
-/* Sosyal Medya Butonları */
+/* ======================== DİL SEÇİMİ ======================== */
+
+.language-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+}
+
+.language-switcher button {
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.language-switcher button:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+.language-switcher .active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ======================== SOSYAL MEDYA ======================== */
+
 .social-media-buttons {
   display: flex;
   justify-content: center;
@@ -205,53 +155,44 @@ p {
 
 .social-media-buttons a {
   font-size: 30px;
-  color: #333; /* Siyah tonlarında renk */
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
   padding: 10px;
   border-radius: 50%;
-  background-color: #f4f4f4; /* Buton arka plan rengi */
 }
 
 .social-media-buttons a:hover {
-  color: #000000; /* Hover durumunda maviye dönüş */
-  background-color: #e6e6e6; /* Hoverda daha açık gri arka plan */
+  color: #333333;
 }
 
-/* Sosyal Medya Butonlarının Küçük Ekranlarda Duyarlı Olması İçin */
-@media (max-width: 768px) {
-  .social-media-buttons {
-    gap: 15px;
-  }
-}
+/* ======================== INFO BOX & BUTONU ======================== */
 
-/* Info Butonu */
 .info-button {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 30px; /* Genişlik biraz artırıldı */
-  height: 30px; /* Yükseklik biraz artırıldı */
-  background-color: white; /* Beyaz arka plan */
-  color: #333; /* Harf rengi siyah */
-  font-size: 25px; /* Harf boyutu artırıldı */
-  font-weight: bold; /* Harfi kalın yapıyoruz */
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  color: #333;
+  font-size: 25px;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%; /* Yuvarlak şekil */
+  border-radius: 50%;
   cursor: pointer;
-  border: 2px solid #333; /* Siyah kenarlık */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Hover animasyonu */
+  border: 2px solid #333;
   z-index: 10;
+  transition: all 0.3s ease;
 }
 
 .info-button:hover {
-  background-color: #000000; /* Hoverda siyah arka plan */
-  color: white; /* Hoverda ikon beyaz olacak */
+  background-color: #000000;
+  color: #ffffff;
 }
 
-/* Info Kutusu */
 .info-box {
   position: fixed;
   top: 50%;
@@ -260,28 +201,19 @@ p {
   width: 80%;
   max-width: 600px;
   padding: 30px;
-  background-color: white;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  background-color: #222222;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   z-index: 9;
-  display: none; /* Başlangıçta gizli */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Animasyon */
-  border: 1px solid #333; /* İnce siyah çerçeve */
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
-.info-box.show {
-  display: block; /* Butona tıklandığında kutu görünür hale gelir */
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1); /* Kutu animasyonla görünür olur */
-}
-
-/* Kapat Butonu */
 .close-info {
-  display: block;
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #000000; /* Mavi buton */
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -289,49 +221,60 @@ p {
 }
 
 .close-info:hover {
-  background-color: #000000; /* Hoverda koyu mavi */
+  background-color: #dddddd;
 }
 
-/* Mobil ve Tablet Responsive Tasarım */
+/* ======================== RESPONSIVE ======================== */
 
-/* Tablet ve Mobil Ekranlar İçin */
 @media (max-width: 768px) {
   .info-button {
-    width: 25px; /* Mobilde buton biraz küçülecek */
-    height: 25px; /* Mobilde buton biraz küçülecek */
-    font-size: 20px; /* Harf boyutu küçülecek */
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
   }
 
   .info-box {
-    width: 85%; /* Kutunun genişliği biraz daha genişleyecek */
-    padding: 20px; /* Kutunun iç paddingi küçülecek */
+    width: 85%;
+    padding: 20px;
   }
 
   .close-info {
-    width: 100%; /* Kapat butonu tam genişlikte olacak */
+    width: 100%;
     text-align: center;
+  }
+
+  .language-switcher {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .auth-buttons {
+    top: 10px;
+    right: 10px;
+  }
+
+  .login-btn, .signup-btn {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
 
-/* Çok Küçük Ekranlar İçin (Telefonlar) */
 @media (max-width: 480px) {
   .info-button {
-    width: 20px; /* Buton genişliği mobil ekranlara göre ayarlandı */
+    width: 20px;
     height: 20px;
-    font-size: 16px; /* Harf boyutunu küçültüyoruz */
-    top: 10px; /* Buton biraz daha yukarı kayacak */
-    left: 10px; /* Sol tarafta da daha yakın olacak */
+    font-size: 16px;
+    top: 10px;
+    left: 10px;
   }
 
   .info-box {
-    width: 90%; /* Kutunun genişliği mobilde çok daha geniş olacak */
-    padding: 15px; /* Kutunun paddingi daha dar */
+    width: 90%;
+    padding: 15px;
   }
 
   .close-info {
     padding: 10px 0;
-    font-size: 14px; /* Buton yazı boyutunu küçültüyoruz */
+    font-size: 14px;
   }
 }
-
-
