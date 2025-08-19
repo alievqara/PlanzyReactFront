@@ -1,0 +1,176 @@
+/* ======== Temel Ayarlar ======== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #090221; /* Premium arka plan */
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ======== Konteyner & Kutu ======== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #090221; /* Premium arka plan */
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 400px;
+  background-color: #1a1a1a; /* Card arka plan */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-box h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--accent, #d8c77d); /* Altın vurgu */
+}
+
+/* ======== Form Yapısı ======== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #333;
+  background-color: #111;
+  color: #fff;
+  border-radius: 6px;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+form input::placeholder {
+  color: #888;
+}
+
+form input:hover,
+form input:focus {
+  border-color: var(--accent, #d8c77d);
+  background-color: #1e1e1e;
+  outline: none;
+}
+
+/* ======== Butonlar ======== */
+form button {
+  padding: 12px;
+  font-weight: bold;
+  background-color: var(--accent, #d8c77d);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--accent-hover, #c5b45e);
+}
+
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ======== Hata / Mesaj ======== */
+.error,
+.auth-message {
+  color: #ff6464;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ======== Alternatif Seçenekler ======== */
+.auth-options {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.auth-options a {
+  color: var(--accent, #d8c77d);
+  text-decoration: underline;
+  transition: 0.2s ease;
+}
+
+.auth-options a:hover {
+  color: var(--accent-hover, #c5b45e);
+  text-decoration: none;
+}
+
+/* ======== Sosyal Giriş Butonları ======== */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.social-buttons button {
+  width: 100%;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.google-btn {
+  background-color: #db4437;
+}
+.google-btn:hover {
+  background-color: #c33228;
+}
+
+.apple-btn {
+  background-color: #333;
+}
+.apple-btn:hover {
+  background-color: #222;
+}
+
+.vk-btn {
+  background-color: #4c75a3;
+}
+.vk-btn:hover {
+  background-color: #3a5e85;
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 28px;
+  }
+  form input,
+  form button,
+  .social-buttons button {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,172 @@
+/* ===== Colors sadece 1 kez import ===== */
+@import url("./Colors.css");
+
+/* ===============================
+   📦 BASE WRAPPER CONTAINER
+=============================== */
+.base-wrapper {
+  width: 100%;                    
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 30px var(--shadow);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  position: sticky;               /* Sticky istiyorsak top verelim */
+  top: 0;
+  z-index: 1;                     /* Topbar/Sidebar üstüne çıkmasın, ama kendi içinde sabit kalsın */
+  margin: 10px;
+  border-radius: 20px; 
+  overflow: hidden;               /* İçerik taşmalarını kibarca kes */
+}
+
+/* İçerik: tek scroll burada olsun */
+.base-content {
+  width: 100%;
+  height: 200vh;
+  flex: 1;                        /* Header/breadcrumb dışı alan */
+  padding: 1rem;
+  overflow-y: auto;               /* Dikey scroll sadece burada */
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;                  /* Flex child scroll için kritik */
+}
+
+/* Geri butonu vs. */
+.base-back-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* Empty/Loading durumları */
+.base-loading,
+.base-empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted-text);
+}
+.base-empty {
+  font-size: 1.2rem;
+}
+
+/* ======= DASHBOARD LAYOUT ======= */
+.dashboard-layout {
+  border-radius: 20px;
+  display: flex;
+  height: 100vh;                  /* İstersen 100dvh */
+  background-color: var(--primary-bg);
+  overflow: hidden;               /* Global overflow kapalı */
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;               /* Çift scroll’u önle */
+  min-height: 0;                  /* Çocukların scroll yapabilmesi için */
+}
+
+/* Eğer .dashboard-main içinde bir content-area varsa: */
+.dashboard-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;               /* Scroll sadece .base-content’te */
+  min-height: 0;
+  
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .base-wrapper {
+    margin: 8px;
+    border-radius: 14px;
+  }
+  .base-content {
+    padding: .875rem;
+  }
+}
+
+
+
+/* ===== Demo Home layout ===== */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: minmax(120px, auto);
+  gap: 1rem;
+}
+
+.card {
+  background: var(--primary-bg, #0a0a0a);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .75rem;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: .45rem .8rem;
+  cursor: pointer;
+  color: var(--text-color, #fff);
+}
+
+.stat-card .stat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+.stat-title { opacity: .85; font-size: .9rem; }
+.stat-delta.up { color: var(--accent, #eab831); }
+.stat-delta.down { color: #ff5e84; }
+
+.stat-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.list { display: flex; flex-direction: column; gap: .6rem; }
+.list-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem .75rem; border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+}
+.list-title { font-weight: 600; }
+.list-sub { opacity: .7; font-size: .9rem; margin-top: .15rem; }
+.list-time { opacity: .85; font-size: .9rem; }
+
+.tasks { display: flex; flex-direction: column; gap: .5rem; }
+.task-item { display: flex; align-items: center; gap: .6rem; }
+.task-item input { transform: translateY(1px); }
+.task-text { opacity: .95; }
+
+/* grid yardımcıları */
+.span-2 { grid-column: span 2; }
+
+/* responsive */
+@media (max-width: 1100px) {
+  .home-grid { grid-template-columns: repeat(2, 1fr); }
+  .span-2 { grid-column: span 2; }
+}
+@media (max-width: 680px) {
+  .home-grid { grid-template-columns: 1fr; }
+  .span-2 { grid-column: span 1; }
+}

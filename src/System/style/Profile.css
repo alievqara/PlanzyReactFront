@@ -1,0 +1,143 @@
+/* ======================================
+   📦 PROFILE SETTINGS WRAPPER
+====================================== */
+.profile-settings {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px var(--shadow);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .profile-settings {
+  background-color: var(--light-card-bg);
+  color: var(--light-text-color);
+  box-shadow: 0 8px 24px var(--light-shadow);
+}
+
+.profile-settings h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+/* ======================================
+   👤 PROFILE HEADER CARD
+====================================== */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.light-mode .profile-header {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.profile-main-info h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.profile-role {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
+
+.profile-username {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ======================================
+   📋 PROFILE INFO DISPLAY
+====================================== */
+.profile-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.profile-section {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.light-mode .profile-section {
+  background-color: var(--light-card-bg);
+  box-shadow: 0 4px 16px var(--light-shadow);
+}
+
+.profile-section h3 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.profile-field {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.95rem;
+}
+
+.light-mode .profile-field {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.profile-missing {
+  color: var(--muted-text);
+  font-style: italic;
+}
+
+.light-mode .profile-missing {
+  color: var(--light-muted-text);
+}
+
+/* ======================================
+   ✅ VERIFIED / ❌ NOT VERIFIED
+====================================== */
+.verified {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.not-verified {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+/* ======================================
+   📱 RESPONSIVE
+====================================== */
+@media (max-width: 768px) {
+  .profile-field {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}

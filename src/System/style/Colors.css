@@ -1,0 +1,106 @@
+/* ============================================
+   🌑 DARK MODE (Varsayılan)
+   ============================================ */
+:root {
+  /* Genel Arka Planlar */
+  --primary-bg: #0a0a0a;       /* Body / Ana arka plan */
+  --sidebar-bg: #0d0d0d;       /* Sidebar */
+  --card-bg: #1a1a1a;          /* Kartlar, Topbar */
+
+  /* İç Alanlar ve Hover Efektleri */
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --hover-submenu-bg: rgba(255, 255, 255, 0.03);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+
+  /* Vurgu Renkleri (Altın temasına uygun) */
+  --accent: #eab831;           /* Ana vurgu */
+  --accent-hover: #d09f25;
+  --accent-light: #ffcf5c;
+
+  /* Metin Renkleri */
+  --text-color: #ffffff;
+  --muted-text: #aaaaaa;
+  --disabled-text: #555555;
+
+  /* Başarı, Uyarı, Hata, Bilgi */
+  --btn-success: #28a745;
+  --btn-success-hover: #218838;
+
+  --btn-edit: #17a2b8;
+  --btn-edit-hover: #138496;
+
+  --btn-danger: #dc3545;
+  --btn-danger-hover: #bd2130;
+
+  --btn-warning: #ffc107;
+  --btn-warning-hover: #e0a800;
+
+  --btn-info: #6c757d;
+  --btn-info-hover: #5a6268;
+
+  /* Kenarlıklar & Gölge */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: rgba(0, 0, 0, 0.6);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-track: transparent;
+
+  /* Kod / JSON alanları */
+  --code-bg: #161616;
+  --code-text: #f8f8f2;
+}
+
+
+/* ============================================
+   🌕 LIGHT MODE
+   ============================================ */
+.light-mode {
+  /* Genel Arka Planlar */
+  --primary-bg: #a7a6a4;
+  --sidebar-bg: #ffffff;
+  --card-bg: #ffffff;
+
+  /* Hover Efektleri */
+  --hover-bg: rgba(0, 0, 0, 0.04);
+  --hover-submenu-bg: rgba(0, 0, 0, 0.02);
+  --overlay-bg: rgba(0, 0, 0, 0.15);
+
+  /* Vurgu Renkleri (Altın tonu açık tema için) */
+  --accent: #d4a017;
+  --accent-hover: #b88b13;
+  --accent-light: #ffe27c;
+
+  /* Metin Renkleri */
+  --text-color: #1a1a1a;
+  --muted-text: #666666;
+  --disabled-text: #cccccc;
+
+  /* Başarı, Uyarı, Hata, Bilgi */
+  --btn-success: #28a745;
+  --btn-success-hover: #218838;
+
+  --btn-edit: #17a2b8;
+  --btn-edit-hover: #138496;
+
+  --btn-danger: #dc3545;
+  --btn-danger-hover: #bd2130;
+
+  --btn-warning: #ffc107;
+  --btn-warning-hover: #e0a800;
+
+  --btn-info: #6c757d;
+  --btn-info-hover: #5a6268;
+
+  /* Kenarlıklar & Gölge */
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.08);
+
+  /* Scrollbar */
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-track: transparent;
+
+  /* Kod / JSON alanları */
+  --code-bg: #f0f0f0;
+  --code-text: #1a1a1a;
+}

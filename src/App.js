@@ -1,28 +1,52 @@
-// src/App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from "./LandingPage";
-import Register from './pages/RegisterPage';
-import Login from './pages/LoginPage';
-import CreateBusinessPage from "./pages/CreateBusinessPage";
-import DashboardPage from "./pages/DashboardPage";
+import { Routes, Route } from "react-router-dom";
+
+// ✅ UI Pages
+import LandingPage from "./UI/pages/LandingPage";
+import LoginPage from "./UI/pages/LoginPage";
+import RegisterPage from "./UI/pages/RegisterPage";
+import ForgotPasswordPage from "./UI/pages/ForgotPasswordPage";
+import ResetPasswordPage from "./UI/pages/ResetPasswordPage";
+import VerifyEmailPage from "./UI/pages/VerifyEmailPage";
+import EmailSentPage from "./UI/pages/EmailSentPage";
+import TwoFactorPage from "./UI/pages/TwoFactorPage";
 
 
+// ✅ Dashboard System Layout & Pages
+import NotFoundPage from "./System/components/NotFoundPage";
+import DashboardLayout from "./System/layout/DashboardLayout";
+import DashboardHome from "./System/pages/DashboardHome";
+
+// ✅ Global Styles
+import "./UI/style/landing.css"; // UI stilleri
+import "./System/style/Base.css"; // Eğer varsa dashboard stilleri
+import "./System/style/Colors.css"; // Eğer varsa dashboard stilleri
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/create-business" element={<CreateBusinessPage />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/" exact element={<LandingPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+    <Routes>
+      {/* === UI Routes === */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/signin" element={<LoginPage />} />
+      <Route path="/signup" element={<RegisterPage />} />
+      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
+      <Route path="/verify-email" element={<VerifyEmailPage />} />
+      <Route path="/email-sent" element={<EmailSentPage />} />
+      <Route path="/2fa" element={<TwoFactorPage />} />
 
-      </Routes>
-    </Router>
+      {/* === Dashboard Layout & Subroutes === */}
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route index element={<DashboardHome />} /> {/* /dashboard */}
+        <Route path="*" element={<NotFoundPage />} />
+        
+
+
+
+        {/* 🔜 Diğer sayfalar (services, analytics vs.) buraya eklenecek */}
+      </Route>
+    </Routes>
   );
 }
 
 export default App;
-
